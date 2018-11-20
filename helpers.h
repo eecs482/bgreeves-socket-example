@@ -38,12 +38,12 @@ int make_server_sockaddr(struct sockaddr_in *addr, int port) {
 	// Step (2): specify socket address (hostname).
 	// The socket will be a server, so it will only be listening.
 	// Let the OS map it to the correct address.
-	addr->sin_addr.s_addr = INADDR_ANY;
+	addr->sin_addr.s_addr = htonl(INADDR_ANY);
 
 	// Step (3): Set the port value.
 	// If port is 0, the OS will choose the port for us.
-	// Use ntohs to convert from local byte order to network byte order.
-	addr->sin_port = ntohs(port);
+	// Use htons to convert from local byte order to network byte order.
+	addr->sin_port = htons(port);
 
 	return 0;
 }
@@ -76,8 +76,8 @@ int make_client_sockaddr(struct sockaddr_in *addr, const char *hostname, int por
 	memcpy(&(addr->sin_addr), host->h_addr, host->h_length);
 
 	// Step (3): Set the port value.
-	// Use ntohs to convert from local byte order to network byte order.
-	addr->sin_port = ntohs(port);
+	// Use htons to convert from local byte order to network byte order.
+	addr->sin_port = htons(port);
 
 	return 0;
 }

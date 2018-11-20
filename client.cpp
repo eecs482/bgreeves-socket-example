@@ -48,7 +48,7 @@ int send_message(const char *hostname, int port, const char *message) {
 int main(int argc, const char **argv) {
 	// Parse command line arguments
 	if (argc != 4) {
-		printf("Usage: ./server hostname port_num message\n");
+		printf("Usage: ./client hostname port_num message\n");
 		return 1;
 	}
 	const char *hostname = argv[1];
