@@ -41,10 +41,17 @@ int send_message(const char *hostname, int port, const char *message) {
 	}
 	
 	// (4) Send message to remote server
-	if (send(sockfd, message, strlen(message), 0) == -1) {
-		perror("Error sending on stream socket");
-		return -1;
-	}
+	// Call send() enough times to send all the data
+	size_t message_len = strlen(message);
+	size_t sent = 0;
+	do {
+		ssize_t n = send(sockfd, message + sent, message_len - sent, 0);
+		if (n == -1) {
+			perror("Error sending on stream socket");
+			return -1;
+		}
+		sent += n;
+	} while (sent < message_len);
 
 	// (5) Close connection
 	close(sockfd);
