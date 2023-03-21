@@ -1,9 +1,5 @@
-#include <arpa/inet.h> // ntohs()
 #include <cstdlib>
 #include <iostream>
-#include <string>
-#include <sys/socket.h> // socket(), connect(), send(), recv()
-#include <unistd.h>     // close()
 
 #include "helpers.h" // make_client_sockaddr()
 

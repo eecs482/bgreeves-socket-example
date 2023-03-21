@@ -55,9 +55,9 @@ int handle_connection(int connectionfd) {
  * them _synchronously_.
  *
  * Parameters:
- *		port: 		The port on which to listen for incoming
- *connections. queue_size: 	Size of the listen() queue Returns: -1 on
- *failure, does not return on success.
+ *		port: 	        The port on which to listen for incoming connections.
+ *		queue_size: 	Size of the listen() queue
+ *		Returns: -1 on failure, does not return on success.
  */
 int run_server(int port, int queue_size) {
 

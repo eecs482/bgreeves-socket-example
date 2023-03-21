@@ -1,10 +1,4 @@
-#include <arpa/inet.h> // htons()
-#include <array>
-#include <cstdlib>  // atoi()
-#include <iostream> // std::cout, std::endl
-#include <string>
-#include <sys/socket.h> // socket(), bind(), listen(), accept(), send(), recv()
-#include <unistd.h>     // close()
+#include <iostream>
 
 #include "helpers.h" // make_server_sockaddr(), get_port_number()
 
@@ -39,9 +33,9 @@ int handle_connection(int connectionfd) {
  * them _synchronously_.
  *
  * Parameters:
- *		port: 		The port on which to listen for incoming
- *connections. queue_size: 	Size of the listen() queue Returns: -1 on
- *failure, does not return on success.
+ *		port: 	        The port on which to listen for incoming connections.
+ *		queue_size: 	Size of the listen() queue
+ *		Returns: -1 on failure, does not return on success.
  */
 int run_server(int port, int queue_size) {
   // (1) Create socket

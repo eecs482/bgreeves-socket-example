@@ -38,14 +38,16 @@ int make_server_sockaddr(struct sockaddr_in *addr, int port) {
 /**
  * Make a client sockaddr given a remote hostname and port.
  * Parameters:
- *		addr: 		The sockaddr to modify (this is a C-style
- *function). hostname: 	The hostname of the remote host to connect to. port:
- *The port to use to connect to the remote hostname. Returns: 0 on success, -1
- *on failure. Example: struct sockaddr_in client; int err =
- *make_client_sockaddr(&client, "141.88.27.42", 8888);
+ *		addr: 	The sockaddr to modify (this is a C-style function).
+ *		hostname: 	The hostname of the remote host to connect to.
+ *		port: The port to use to connect to the remote hostname.
+ * Returns:
+ *              0 on success, -1 on failure.
+ * Example:
+ *              struct sockaddr_in client;
+ *              int err = make_client_sockaddr(&client, "141.88.27.42", 8888);
  */
-int make_client_sockaddr(struct sockaddr_in *addr, const char *hostname,
-                         int port) {
+int make_client_sockaddr(struct sockaddr_in *addr, const char *hostname, int port) {
   // Step (1): specify socket family.
   // This is an internet socket.
   addr->sin_family = AF_INET;
