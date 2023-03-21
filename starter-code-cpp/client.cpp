@@ -1,6 +1,6 @@
 #include <arpa/inet.h> // ntohs()
+#include <cstdlib>
 #include <iostream>
-#include <cstdlib> // atoi()
 #include <string>
 #include <sys/socket.h> // socket(), connect(), send(), recv()
 #include <unistd.h>     // close()
