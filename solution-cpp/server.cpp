@@ -44,7 +44,7 @@ int handle_connection(int connectionfd) {
 	} while (rval > 0);  // recv() returns 0 when client closes
 
 	// (2) Print out the message
-	cout << "Client " << connectionfd << " says " << message << endl;
+	cout << "Client " << connectionfd << " says \'" << message << '\'' << endl;
 
 	// (3) Close connection
 	close(connectionfd);
