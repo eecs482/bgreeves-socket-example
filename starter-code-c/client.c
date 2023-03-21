@@ -28,10 +28,6 @@ int send_message(const char *hostname, int port, const char *message) {
 	// (1) Create a socket
 
 	// (2) Create a sockaddr_in to specify remote host and port
-	struct sockaddr_in addr;
-	if (make_client_sockaddr(&addr, hostname, port) == -1) {
-		return -1;
-	}
 
 	// (3) Connect to remote server
 	

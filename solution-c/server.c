@@ -43,7 +43,7 @@ int handle_connection(int connectionfd) {
 	// (2) Print out the message
 	printf("Client %d says '%s'\n", connectionfd, msg);
 
-	// (4) Close connection
+	// (3) Close connection
 	close(connectionfd);
 
 	return 0;
