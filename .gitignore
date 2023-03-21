@@ -2,3 +2,6 @@
 *.dSYM
 client
 server
+.DS_Store
+.idea
+.vscode
