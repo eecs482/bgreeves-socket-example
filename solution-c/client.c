@@ -35,7 +35,7 @@ int send_message(const char *hostname, int port, const char *message) {
 	}
 
 	// (3) Connect to remote server
-	if (connect(sockfd, (sockaddr *) &addr, sizeof(addr)) == -1) {
+	if (connect(sockfd, (struct sockaddr *) &addr, sizeof(addr)) == -1) {
 		perror("Error connecting stream socket");
 		return -1;
 	}

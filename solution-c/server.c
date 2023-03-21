@@ -82,7 +82,7 @@ int run_server(int port, int queue_size) {
 	}
 
 	// (3b) Bind to the port.
-	if (bind(sockfd, (sockaddr *) &addr, sizeof(addr)) == -1) {
+	if (bind(sockfd, (struct sockaddr *) &addr, sizeof(addr)) == -1) {
 		perror("Error binding stream socket");
 		return -1;
 	}
@@ -95,7 +95,7 @@ int run_server(int port, int queue_size) {
 	listen(sockfd, queue_size);
 
 	// (5) Serve incoming connections one by one forever.
-	while (true) {
+	while (1) {
 		int connectionfd = accept(sockfd, 0, 0);
 		if (connectionfd == -1) {
 			perror("Error accepting connection");
