@@ -1,11 +1,11 @@
 # Sockets Discussion Starter Code
 
-Implement the TODOs in server.cpp and client.cpp.
+Implement the TODOs in `server.c` and `client.c`
 
 ## During Class: Implement together
 
-- `server.cpp`: Runs a server that listens for messages from clients.
-- `client.cpp`: Creates a client that sends a single message to the server.
+- `server.c`: Runs a server that listens for messages from clients.
+- `client.c`: Creates a client that sends a single message to the server.
 
 ## Helper function
 
