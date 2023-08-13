@@ -1,13 +1,13 @@
-CXX = g++
-CXXFLAGS = -g -std=c++11 -pedantic
+CXX = gcc
+CXXFLAGS = -g -pedantic
 
 all: server client
 
-server: server.cpp
-	$(CXX) $(CXXFLAGS) server.cpp -o server
+server: server.c
+	$(CXX) $(CXXFLAGS) server.c -o server
 
-client: client.cpp
-	$(CXX) $(CXXFLAGS) client.cpp -o client
+client: client.c
+	$(CXX) $(CXXFLAGS) client.c -o client
 
 clean:
 	rm -rf client server *.dSYM

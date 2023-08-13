@@ -2,3 +2,4 @@
 *.dSYM
 client
 server
+.idea
