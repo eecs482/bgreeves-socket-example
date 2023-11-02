@@ -20,7 +20,8 @@ static const size_t MAX_MESSAGE_SIZE = 256;
  *		0 on success, -1 on failure.
  */
 int send_message(const char *hostname, int port, const char *message) {
-  if (strlen(message) > MAX_MESSAGE_SIZE) {
+  const size_t message_len = strlen(message);
+  if (message_len > MAX_MESSAGE_SIZE) {
     perror("Error: Message exceeds maximum length\n");
     return -1;
   }
@@ -42,10 +43,9 @@ int send_message(const char *hostname, int port, const char *message) {
 
   // (4) Send message to remote server
   // Call send() enough times to send all the data
-  size_t message_len = strlen(message);
-  size_t sent = 0;
+  ssize_t sent = 0;
   do {
-    ssize_t n = send(sockfd, message + sent, message_len - sent, 0);
+    const ssize_t n = send(sockfd, message + sent, message_len - sent, 0);
     if (n == -1) {
       perror("Error sending on stream socket");
       return -1;
@@ -66,7 +66,7 @@ int main(int argc, const char **argv) {
     return 1;
   }
   const char *hostname = argv[1];
-  int port = atoi(argv[2]);
+  const int port = atoi(argv[2]);
   const char *message = argv[3];
 
   printf("Sending message %s to %s:%d\n", message, hostname, port);

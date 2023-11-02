@@ -27,7 +27,7 @@ int handle_connection(int connectionfd) {
   memset(msg, 0, sizeof(msg));
 
   // Call recv() enough times to consume all the data the client sends.
-  size_t recvd = 0;
+  ssize_t recvd = 0;
   ssize_t rval;
   do {
     // Receive as many additional bytes as we can in one call to recv()
@@ -96,7 +96,7 @@ int run_server(int port, int queue_size) {
 
   // (5) Serve incoming connections one by one forever.
   while (1) {
-    int connectionfd = accept(sockfd, 0, 0);
+    int connectionfd = accept(sockfd, NULL, NULL);
     if (connectionfd == -1) {
       perror("Error accepting connection");
       return -1;
@@ -114,7 +114,7 @@ int main(int argc, const char **argv) {
     printf("Usage: ./server port_num\n");
     return 1;
   }
-  int port = atoi(argv[1]);
+  const int port = atoi(argv[1]);
 
   if (run_server(port, 10) == -1) {
     return 1;

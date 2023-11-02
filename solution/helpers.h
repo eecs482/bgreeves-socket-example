@@ -60,7 +60,7 @@ int make_client_sockaddr(struct sockaddr_in *addr, const char *hostname, int por
     fprintf(stderr, "%s: unknown host\n", hostname);
     return -1;
   }
-  memcpy(&(addr->sin_addr), host->h_addr, host->h_length);
+  memcpy(&addr->sin_addr, host->h_addr, host->h_length);
 
   // Step (3): Set the port value.
   // Use htons to convert from local byte order to network byte order.
