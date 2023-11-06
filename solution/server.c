@@ -92,7 +92,10 @@ int run_server(int port, int queue_size) {
   printf("Server listening on port %d...\n", port);
 
   // (4) Begin listening for incoming connections.
-  listen(sockfd, queue_size);
+  if (listen(sockfd, queue_size) == -1) {
+    perror("Error listening");
+    return -1;
+  }
 
   // (5) Serve incoming connections one by one forever.
   while (1) {
